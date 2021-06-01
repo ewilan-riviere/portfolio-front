@@ -1,48 +1,33 @@
 <template>
-  <!--
-  Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
-  Read the documentation to get started: https://tailwindui.com/documentation
--->
   <div class="bg-indigo-800">
     <div class="max-w-screen-xl px-4 py-8 mx-auto sm:py-10 sm:px-6 lg:px-8">
       <div class="lg:space-y-10">
         <h2 class="text-3xl font-bold leading-9 text-white">
           Des technologies solides et connues
         </h2>
-        <section v-if="showSwiper">
-          <div
-            v-swiper:mySwiper="swiperOption"
-            :auto-update="true"
-            :auto-destroy="true"
-          >
-            <div
-              class="flex items-center flex-grow flex-shrink-0 mt-4 ml-8 swiper-wrapper lg:flex-grow-0 lg:ml-4"
+        <div class="loop">
+          <div class="flex items-center space-x-16">
+            <a
+              v-for="technology in randomTechnologies"
+              :key="technology.id"
+              :href="technology.link"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block p-3 text-gray-300 text-opacity-50 rounded-sm  hover:bg-gray-50 hover:bg-opacity-10"
+              :title="technology.name"
             >
-              <div
-                v-for="technology in randomTechnologies"
-                :key="technology.id"
-                class="swiper-slide"
-              >
-                <a
-                  :href="technology.link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="object-contain text-gray-300 text-opacity-50"
-                >
-                  <icon
-                    :name="`${technology.logo}`"
-                    :size="160"
-                    ratio
-                    loading="lazy"
-                    width="200"
-                    height="200"
-                  />
-                </a>
-              </div>
-            </div>
-            <div class="hidden swiper-pagination lg:block"></div>
+              <icon
+                :name="`${technology.logo}`"
+                :size="160"
+                ratio
+                loading="lazy"
+                width="200"
+                height="200"
+                :alt="technology.name"
+              />
+            </a>
           </div>
-        </section>
+        </div>
       </div>
     </div>
   </div>
@@ -55,137 +40,91 @@ export default {
     return {
       technologies: [
         {
-          label: 'Laravel',
+          name: 'Laravel',
           logo: 'techno-laravel',
           link: 'https://laravel.com',
         },
-        { label: 'PHP', logo: 'techno-php', link: 'https://www.php.net' },
+        { name: 'PHP', logo: 'techno-php', link: 'https://www.php.net' },
         {
-          label: 'Backpack',
+          name: 'Backpack',
           logo: 'techno-backpack',
           link: 'https://backpackforlaravel.com',
         },
-        { label: 'Nuxt.js', logo: 'techno-nuxtjs', link: 'https://nuxtjs.org' },
-        { label: 'Vue.js', logo: 'techno-vuejs', link: 'https://vuejs.org' },
+        { name: 'Nuxt.js', logo: 'techno-nuxtjs', link: 'https://nuxtjs.org' },
+        { name: 'Vue.js', logo: 'techno-vuejs', link: 'https://vuejs.org' },
         {
-          label: 'Tailwind CSS',
+          name: 'Tailwind CSS',
           logo: 'techno-tailwindcss',
           link: 'https://tailwindcss.com',
         },
         {
-          label: 'Flutter',
+          name: 'Flutter',
           logo: 'techno-flutter',
           link: 'https://flutter.dev',
         },
-        { label: 'Dart', logo: 'techno-dart', link: 'https://dart.dev' },
+        { name: 'Dart', logo: 'techno-dart', link: 'https://dart.dev' },
         {
-          label: 'Node.js',
+          name: 'Node.js',
           logo: 'techno-node',
           link: 'https://nodejs.org/en',
         },
         {
-          label: 'Bash',
+          name: 'Bash',
           logo: 'techno-bash',
           link: 'https://www.gnu.org/software/bash',
         },
         {
-          label: 'Bootstrap',
+          name: 'Bootstrap',
           logo: 'techno-bootstrap',
           link: 'https://getbootstrap.com',
         },
-        { label: 'Git', logo: 'techno-git', link: 'https://git-scm.com' },
+        { name: 'Git', logo: 'techno-git', link: 'https://git-scm.com' },
         {
-          label: 'Javascript',
+          name: 'Javascript',
           logo: 'techno-javascript',
           link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
         },
         {
-          label: 'LaTeX',
+          name: 'LaTeX',
           logo: 'techno-latex',
           link: 'https://www.latex-project.org',
         },
         {
-          label: 'Linux',
+          name: 'Linux',
           logo: 'techno-linux',
           link: 'https://www.linux.org',
         },
         {
-          label: 'MySQL',
+          name: 'MySQL',
           logo: 'techno-mysql',
           link: 'https://www.mysql.com',
         },
         {
-          label: 'NGINX',
+          name: 'NGINX',
           logo: 'techno-nginx',
           link: 'https://www.nginx.com',
         },
         {
-          label: 'Sass',
+          name: 'Sass',
           logo: 'techno-sass',
           link: 'https://sass-lang.com',
         },
         {
-          label: 'TypeScript',
+          name: 'TypeScript',
           logo: 'techno-typescript',
           link: 'https://www.typescriptlang.org',
         },
         {
-          label: 'Markdown',
+          name: 'Markdown',
           logo: 'techno-markdown',
           link: 'https://en.wikipedia.org/wiki/Markdown',
         },
       ],
-      swiperOption: {
-        autoplay: {
-          delay: 2500,
-          disableOnInteraction: false,
-        },
-        // loop: true,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        slidesPerView: 1,
-        slidesPerGroup: 1,
-        spaceBetween: 10,
-        breakpoints: {
-          '@0.75': {
-            slidesPerView: 2,
-            slidesPerGroup: 2,
-            spaceBetween: 20,
-          },
-          '@1.00': {
-            slidesPerView: 3,
-            slidesPerGroup: 3,
-            spaceBetween: 40,
-          },
-          '@1.25': {
-            slidesPerView: 4,
-            slidesPerGroup: 4,
-            spaceBetween: 40,
-          },
-          '@1.75': {
-            slidesPerView: 5,
-            slidesPerGroup: 5,
-            spaceBetween: 50,
-          },
-        },
-        lazy: {
-          loadPrevNext: true,
-        },
-        flipEffect: {
-          slideShadows: false,
-        },
-      },
       randomTechnologies: [],
-      showSwiper: false,
     }
   },
   created() {
     this.randomTechnologies = this.shuffle(this.technologies)
-  },
-  mounted() {
-    this.showSwiper = true
   },
   methods: {
     shuffle(array) {
@@ -212,19 +151,19 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.swiper-container {
-  @apply pb-10 pt-8 !important;
+.loop {
+  @apply inline-block whitespace-nowrap;
+  animation: loop 50s infinite linear;
+  padding-left: 100%;
 }
 
-.swiper-pagination {
-  @apply bottom-2.5;
+.loop:hover {
+  /* animation-play-state: paused; */
 }
 
-/deep/ .swiper-pagination-bullet {
-  @apply bg-black bg-opacity-50 !important;
-}
-
-/deep/ .swiper-pagination-bullet-active {
-  @apply bg-black bg-opacity-25 !important;
+@keyframes loop {
+  to {
+    transform: translateX(-100%);
+  }
 }
 </style>

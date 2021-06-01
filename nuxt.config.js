@@ -146,12 +146,6 @@ export default {
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
     { src: '~/plugins/icons-loader', ssr: false },
-    { src: '~/plugins/v-tooltip', ssr: false },
-    { src: '~/plugins/vue-scrollto' },
-    { src: '~/plugins/swiper' },
-    { src: '~/plugins/i18n' },
-    // https://github.com/paulcollett/vue-masonry-css
-    { src: '~/plugins/vue-masonry-css', ssr: false },
     { src: '~/plugins/sweetalert2', ssr: false },
     { src: '~/plugins/helpers' },
     { src: '~/plugins/jsonld' },
@@ -171,13 +165,12 @@ export default {
     // Doc: https://github.com/nuxt-community/router-module
     // ['@nuxtjs/router', { keepDefaultRouter: true }],
     // https://color-mode.nuxtjs.org/#setup
-    '@nuxtjs/color-mode',
+    // '@nuxtjs/color-mode',
     // https://google-fonts.nuxtjs.org
     // '@nuxtjs/google-fonts',
   ],
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
-    jit: true,
   },
   colorMode: {
     classSuffix: '',
@@ -263,5 +256,7 @@ export default {
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {},
+  build: {
+    transpile: ['vue-agile'],
+  },
 }

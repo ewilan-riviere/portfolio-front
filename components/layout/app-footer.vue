@@ -10,7 +10,6 @@
           <a
             v-for="social in socialLinks"
             :key="social.id"
-            v-tooltip="social.label"
             class="p-3 transition-colors duration-300 rounded-md hover:bg-gray-200"
             :href="social.link"
             target="_blank"
