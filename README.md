@@ -73,3 +73,4 @@ Links:
   - <https://codepen.io/peterramsing/pen/jAxVBB>
   - <https://codepen.io/Chester/pen/KyJpoK>
   - <https://thinkshout.com/blog/2017/06/fade-to-black-responsive-css-gradients/>
+- css masonry: <https://www.smashingmagazine.com/native-css-masonry-layout-css-grid/>
