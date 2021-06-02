@@ -1,34 +1,35 @@
 <template>
   <footer
-    class="relative w-full bg-white border-t dark:border-gray-800 dark:bg-gray-900"
+    class="relative w-full bg-white border-t  dark:border-gray-800 dark:bg-gray-900"
   >
     <div
-      class="max-w-screen-xl px-4 py-6 mx-auto space-y-2 overflow-hidden sm:px-6 lg:px-8"
+      class="max-w-screen-xl px-4 py-6 mx-auto space-y-2 overflow-hidden  sm:px-6 lg:px-8"
     >
       <div>
         <div class="flex flex-wrap justify-center">
           <a
             v-for="social in socialLinks"
             :key="social.id"
-            class="p-3 transition-colors duration-300 rounded-md hover:bg-gray-200"
+            class="p-3 transition-colors duration-300 rounded-md  hover:bg-gray-200"
             :href="social.link"
             target="_blank"
             rel="noopener noreferrer"
             :class="`hover:icon-${social.icon}`"
+            :title="social.name"
           >
             <icon :name="social.icon" :size="20" />
           </a>
         </div>
       </div>
       <div
-        class="flex items-center justify-center text-base text-center text-gray-400"
+        class="flex items-center justify-center text-base text-center text-gray-400 "
       >
         <div class="items-center block lg:flex w-max-content">
           <a
             href="https://creativecommons.org"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex flex-wrap items-center justify-center px-1 py-2 text-base leading-6 text-center text-gray-400 transition-colors duration-300 rounded-md hover:text-gray-600"
+            class="flex flex-wrap items-center justify-center px-1 py-2 text-base leading-6 text-center text-gray-400 transition-colors duration-300 rounded-md  hover:text-gray-600"
           >
             <icon
               v-for="icon in copyrights"
@@ -46,7 +47,7 @@
             :href="github"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center justify-center px-1 py-2 text-base leading-6 text-center text-gray-400 transition-colors duration-300 rounded-md hover:text-gray-600"
+            class="flex items-center justify-center px-1 py-2 text-base leading-6 text-center text-gray-400 transition-colors duration-300 rounded-md  hover:text-gray-600"
           >
             {{ packageJson.author.name }}.
           </a>
@@ -54,7 +55,7 @@
             :href="license"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center justify-center px-1 py-2 text-base leading-6 text-center text-gray-400 transition-colors duration-300 rounded-md hover:text-gray-600"
+            class="flex items-center justify-center px-1 py-2 text-base leading-6 text-center text-gray-400 transition-colors duration-300 rounded-md  hover:text-gray-600"
           >
             MIT License,
           </a>
@@ -62,16 +63,16 @@
             href="https://nuxtjs.org"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center justify-center px-1 py-2 text-base leading-6 text-center text-gray-400 transition-colors duration-300 rounded-md hover:nuxt-icon group hover:text-gray-600"
+            class="flex items-center justify-center px-1 py-2 text-base leading-6 text-center text-gray-400 transition-colors duration-300 rounded-md  hover:nuxt-icon group hover:text-gray-600"
           >
             built with
             <icon name="nuxt" :size="20" class="mx-1" />
             <span class="font-medium">
               <span
-                class="transition-colors duration-300 group-hover:text-gray-nuxt"
+                class="transition-colors duration-300  group-hover:text-gray-nuxt"
                 >NUXT</span
               ><span
-                class="transition-colors duration-300 group-hover:text-green-nuxt"
+                class="transition-colors duration-300  group-hover:text-green-nuxt"
                 >JS</span
               ></span
             >.
@@ -107,37 +108,32 @@ export default {
       ],
       socialLinks: [
         {
-          label: 'GitHub',
+          name: 'GitHub',
           link: 'https://github.com/ewilan-riviere',
           icon: 'github',
         },
         {
-          label: 'GitLab',
+          name: 'GitLab',
           link: 'https://gitlab.com/ewilan-riviere',
           icon: 'gitlab',
         },
         // {
-        //   label: 'Bit.dev',
+        //   name: 'Bit.dev',
         //   link: 'https://bit.dev/ewilan-riviere',
         //   icon: 'bit',
         // },
         {
-          label: 'Twitter',
+          name: 'Twitter',
           link: 'https://twitter.com/ewilanriviere',
           icon: 'twitter',
         },
         {
-          label: 'LinkedIn',
+          name: 'LinkedIn',
           link: 'https://www.linkedin.com/in/ewilan-riviere',
           icon: 'linkedin',
         },
         {
-          label: 'Portfolio',
-          link: 'https://ewilan-riviere.com',
-          icon: 'briefcase',
-        },
-        {
-          label: 'E-mail',
+          name: 'E-mail',
           link: 'mailto:contact@ewilan-riviere.com',
           icon: 'mail',
         },
